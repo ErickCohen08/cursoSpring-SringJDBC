@@ -18,7 +18,7 @@
 		<property name="password" value="erco.123"></property>
 	</bean>
 
-
+	<!-- Manejo de transacciones en el DAO -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
