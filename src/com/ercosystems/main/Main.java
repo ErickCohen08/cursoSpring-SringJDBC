@@ -53,7 +53,7 @@ public class Main {
 			// System.out.println("modificado correctamente"); } else {
 			// System.out.println("error al modificar"); }
 			
-			// Eliminar
+			// Eliminar d
 			// if(adminDao.delete(1)){
 			// System.out.println("eliminado correctamente"); }else{
 			// System.out.println("error al eliminar"); }
