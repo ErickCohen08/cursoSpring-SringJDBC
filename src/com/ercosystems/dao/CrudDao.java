@@ -9,4 +9,5 @@ public interface CrudDao<T> {
 	public List<T> findAll();
 	public T findById(int id);
 	public List<T> findByNombre(String nombre);
+	public void saveAll(List<T> t);
 }

@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ercosystems.pojo.Admin;
 import com.ercosystems.rowmapper.AdminRowMapper;
@@ -64,4 +67,11 @@ public class AdminDaoImpl implements CrudDao<Admin> {
 				new MapSqlParameterSource("nombre", "%" + nombre + "%"), new AdminRowMapper());
 	}
 
+	@Transactional
+	@Override
+	public void saveAll(List<Admin> admins) {
+		SqlParameterSource[] batchArgs = SqlParameterSourceUtils.createBatch(admins.toArray());
+		jdbcTemplate.batchUpdate(
+				"insert into Admin (nombre, cargo, fechacreacion) values (:nombre, :cargo, :fechacreacion)", batchArgs);
+	}
 }
