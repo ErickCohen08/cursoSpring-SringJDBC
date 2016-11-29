@@ -26,36 +26,41 @@ public class Main {
 		admin.setFechacreacion(ts);
 
 		try {
-			adminDao.save(admin);
-			
-			//buscar todos
-			/*List<Admin> admins = adminDao.findAll();
+			// adminDao.save(admin);
+
+			// buscar todos
+			List<Admin> admins = adminDao.findAll();
 			for (Admin adminss : admins) {
 				System.out.println(adminss);
-			}*/
-						
+			}
+
+			// Busqueda por Id
+			// System.out.println(adminDao.findById(7));
+
+			// Busqueda por nombre
+			// List<Admin> admins = adminDao.findByNombre("a");
+			// for (Adminadminss : admins)
+			// { System.out.println(adminss); }
+
+			// Modificar
+			// Admin admin1 = adminDao.findById(1);
+			// System.out.println(admin1);
+			// admin1.setCargo("Gerente");
+			// admin1.setNombre("ErCo");
+			// admin1.setFechacreacion(new Timestamp(new Date().getTime()));
+
+			// if (adminDao.update(admin1)) {
+			// System.out.println("modificado correctamente"); } else {
+			// System.out.println("error al modificar"); }
 			
-			//Busqueda por Id
-			//System.out.println(adminDao.findById(7));
-			
-			
-			//Busqueda por nobre
-			/*List<Admin> admins = adminDao.findByNombre("a");			
-			for (Admin adminss : admins) {
-				System.out.println(adminss);
-			}*/
-			
-			
-			
-			//Modificar
-			Admin admin1 = adminDao.findById(14);
-			System.out.println();
-			
-			
-			
+			// Eliminar
+			// if(adminDao.delete(1)){
+			// System.out.println("eliminado correctamente"); }else{
+			// System.out.println("error al eliminar"); }
+
 		} catch (Exception ex) {
-			System.out.println("error: "+ex);
-		} 
+			System.out.println("error: " + ex);
+		}
 
 		((ClassPathXmlApplicationContext) applicationContext).close();
 
